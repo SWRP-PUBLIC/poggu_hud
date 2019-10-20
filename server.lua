@@ -6,7 +6,12 @@ function getAccounts(data, xPlayer)
 	local result = {}
 	for i=1, #data do
 		if(data[i] ~= 'money') then
-			result[i] = xPlayer.getAccount(data[i])['money']
+			if(data[i] == 'black_money') and not Config.showBlackMoney then
+				result[i] = nil
+			else
+				result[i] = xPlayer.getAccount(data[i])['money']
+			end
+
 		else
 			result[i] = xPlayer.getMoney()
 		end
@@ -33,6 +38,7 @@ ESX.RegisterServerCallback('poggu_hud:retrieveData', function(source, cb)
 
 	if xPlayer ~= nil then
 		local money,bank,black_money = table.unpack(getAccounts({'money', 'bank', 'black_money'}, xPlayer))
+
 		local society = nil
 		if tableIncludes(allowedGrades, xPlayer.job.grade_name) then
 			TriggerEvent('esx_society:getSociety', xPlayer.job.name, function(data)

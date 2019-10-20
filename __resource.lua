@@ -1,5 +1,8 @@
 client_script 'client.lua'
-server_script 'server.lua'
+server_scripts {
+	'config.lua',
+	'server.lua'
+}
 
 ui_page 'html/index.html'
 

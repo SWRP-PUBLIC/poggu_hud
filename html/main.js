@@ -9,8 +9,15 @@ $(function () {
 			case 'setMoney':
 				$('#cash').text('$ ' + event.data.cash)
 				$('#bank').text('$ ' + event.data.bank)
-				$('#black_money').text('$ ' + event.data.black_money)
-				if (event.data.society) {
+				console.log(event.data.black_money)
+				if(typeof event.data.black_money !== 'undefined') {
+					$('#black_money_item').show()
+					$('#black_money').text('$ ' + event.data.black_money)
+				} else {
+					console.log('haha')
+					$('#black_money_item').fadeOut()
+				}
+				if (typeof event.data.society !== 'undefined') {
 					$('#society_item').fadeIn()
 					$('#society').text('$ ' + event.data.society)
 				} else {
