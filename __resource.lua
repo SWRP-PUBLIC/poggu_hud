@@ -7,5 +7,9 @@ files {
 	'html/index.html',
 	'html/main.js',
 	'html/main.css',
-	'html/user.png'
+	'html/images/job.png',
+	'html/images/society.svg',
+	'html/images/black_money.svg',
+	'html/images/bank.svg',
+	'html/images/money.svg',
 }
