@@ -1,0 +1,59 @@
+.container {
+	display: block;
+	max-width: 15%;
+	position: fixed;
+	right: -109px;
+	top:33px;
+}
+
+.item {
+	margin-top: -6px;
+	background-color: #ffffff77;
+	width: 140px;
+	height: 31px;
+	border-bottom: 1px solid #cc153d;
+}
+
+.item-job {
+	display: inline-block;
+	margin-top: 10px;
+	background-color: #ffffff77;
+	min-width: 136px;
+	height: 31px;
+	border-bottom: 1px solid #cc153d;
+}
+
+.job-text {
+    padding-top: 6px;
+		padding-left: 34px;
+		text-transform: capitalize;
+		margin-top: 0px;
+		padding-right: 8px;
+}
+
+.text {
+    padding-top: 4px;
+		padding-left: 34px;
+		text-transform: capitalize;
+		font-size: 18px;
+}
+
+img {
+	width: 24px;
+  position: fixed;
+  padding-top: 3px;
+  padding-left: 4px;
+}
+
+
+object {
+	width: 24px;
+  position: fixed;
+  padding-top: 3px;
+  padding-left: 4px;
+}
+
+body {
+			font-family: 'Calibri', sans-serif;
+			font-weight: 400;
+}
