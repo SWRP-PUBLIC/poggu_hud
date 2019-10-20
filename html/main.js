@@ -29,12 +29,6 @@ function showAlert (text, time, color) {
 }
 
 $(function () {
-	/*
-	$('.container').animate({
-		right: "+=105px"
-	}, 600, () => {
-	})
-	*/
 	window.addEventListener('message', function (event) {
 		switch (event.data.action) {
 			case 'setJob':
