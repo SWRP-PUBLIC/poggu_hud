@@ -9,7 +9,6 @@ $(function () {
 			case 'setMoney':
 				$('#cash').text('$ ' + event.data.cash)
 				$('#bank').text('$ ' + event.data.bank)
-				console.log(event.data.black_money)
 				if(typeof event.data.black_money !== 'undefined') {
 					$('#black_money_item').show()
 					$('#black_money').text('$ ' + event.data.black_money)
