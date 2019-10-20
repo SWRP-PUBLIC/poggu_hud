@@ -1,5 +1,6 @@
 ESX = nil
 local lastJob = nil
+local isAmmoboxShown = false
 
 Citizen.CreateThread(function()
   while ESX == nil do
@@ -9,7 +10,11 @@ Citizen.CreateThread(function()
   Citizen.Wait(3000)
   if PlayerData == nil or PlayerData.job == nil then
 	  	PlayerData = ESX.GetPlayerData()
-  end
+	end
+	SendNUIMessage({
+		action = 'initGUI',
+		data = { whiteMode = Config.enableWhiteBackgroundMode, enableAmmo = Config.enableAmmoBox, colorInvert = Config.disableIconColorInvert }
+	})
 end)
 
 
@@ -49,6 +54,31 @@ Citizen.CreateThread(function()
 					action = 'setJob',
 					data = jobName
 				})
+			end
+		end
+	end
+end)
+
+Citizen.CreateThread(function()
+ while true do
+		Citizen.Wait(200)
+		if Config.enableAmmoBox then
+			local playerPed = GetPlayerPed(-1)
+			local weapon, hash = GetCurrentPedWeapon(playerPed, 1)
+			if(weapon) then
+				isAmmoboxShown = true
+				local _,ammoInClip = GetAmmoInClip(playerPed, hash)
+				SendNUIMessage({
+						action = 'setAmmo',
+						data = ammoInClip..'/'.. GetAmmoInPedWeapon(playerPed, hash) - ammoInClip
+				})
+			else
+				if isAmmoboxShown then
+					isAmmoboxShown = false
+					SendNUIMessage({
+						action = 'hideAmmobox'
+					})
+				end
 			end
 		end
 	end

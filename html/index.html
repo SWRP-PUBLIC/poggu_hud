@@ -11,27 +11,34 @@
 </head>
 
 <body>
-	<div class="container">
-		<div class="item">
-			<img src="images/money.svg"></img>
-			<p class="text" id="cash">Loading...</p>
+	<div class="dark" id="main">
+		<div class="container">
+			<div class="item">
+				<img src="images/money.svg"></img>
+				<p class="text text-right" id="cash">Loading...</p>
+			</div>
+			<div class="item">
+				<img src="images/bank.svg"></img>
+				<p class="text text-right" id="bank">Loading...</p>
+			</div>
+			<div class="item" id="black_money_item">
+				<img src="images/black_money.svg"></img>
+				<p class="text text-right" id="black_money">Loading...</p>
+			</div>
+			<div class="item" id="society_item" style="display:none">
+				<img src="images/society.svg"></img>
+				<p class="text text-right" id="society">Loading...</p>
+			</div>
 		</div>
-		<div class="item">
-			<img src="images/bank.svg"></img>
-			<p class="text" id="bank">Loading...</p>
+		<div class="item item-job">
+			<img src="images/job.png"></img>
+			<p class="job-text text" style="font-family: 'Roboto', sans-serif;">Retrieving data....</p>
 		</div>
-		<div class="item" id="black_money_item">
-			<img src="images/black_money.svg"></img>
-			<p class="text" id="black_money">Loading...</p>
+		
+		<div class="item item-ammo" id="ammoBox" style="display:none">
+			<img src="https://image.flaticon.com/icons/svg/1461/1461806.svg" class=""></img>
+			<p class="ammo-text text" id="ammoBox-text" style="font-family: 'Roboto', sans-serif;">0/0</p>
 		</div>
-		<div class="item" id="society_item" style="display:none">
-			<img src="images/society.svg"></img>
-			<p class="text" id="society">Loading...</p>
-		</div>
-	</div>
-	<div class="item-job">
-		<img src="images/job.png"></img>
-		<p class="job-text" style="font-family: 'Roboto', sans-serif;">Retrieving data....</p>
 	</div>
 	<script src="main.js" async defer></script>
 </body>
