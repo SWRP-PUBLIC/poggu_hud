@@ -13,7 +13,6 @@ $(function () {
 					$('#black_money_item').show()
 					$('#black_money').text('$ ' + event.data.black_money)
 				} else {
-					console.log('haha')
 					$('#black_money_item').fadeOut()
 				}
 				if (typeof event.data.society !== 'undefined') {
