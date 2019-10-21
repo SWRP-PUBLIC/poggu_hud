@@ -55,7 +55,7 @@ end)
 Citizen.CreateThread(function()
 	while true do
 		Citizen.Wait(9000)
-		if(PlayerData ~= nil) then
+		if(PlayerData ~= nil) and (PlayerData.job ~= nil) then
 			local jobName = PlayerData.job.label..' - '..PlayerData.job.grade_label
 			if(lastJob ~= jobName) then
 				lastJob = jobName
