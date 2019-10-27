@@ -1,8 +1,13 @@
-client_script 'client.lua'
+client_scripts {
+	'config.lua',
+	'client.lua'
+}
 server_scripts {
 	'config.lua',
 	'server.lua'
 }
+
+export 'showAlert'
 
 ui_page 'html/index.html'
 

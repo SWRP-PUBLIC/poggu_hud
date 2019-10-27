@@ -33,6 +33,28 @@ local allowedGrades = {
 	'underboss'
 }
 
+RegisterServerEvent('poggu_hud:retrieveData')
+AddEventHandler('poggu_hud:retrieveData', function()
+	local xPlayer = ESX.GetPlayerFromId(source)
+
+	if xPlayer ~= nil then
+		local money,bank,black_money = table.unpack(getAccounts({'money', 'bank', 'black_money'}, xPlayer))
+
+		local society = nil
+		if tableIncludes(allowedGrades, xPlayer.job.grade_name) then
+			TriggerEvent('esx_society:getSociety', xPlayer.job.name, function(data)
+				if data ~= nil then
+					TriggerEvent('esx_addonaccount:getSharedAccount', data.account, function(account)
+							society = account['money']
+					end)
+				end
+			end)
+		end
+	  TriggerClientEvent('poggu_hud:retrieveData', source, {cash = money, bank = bank, black_money = black_money, society = society})
+	end
+end)
+
+--[[
 ESX.RegisterServerCallback('poggu_hud:retrieveData', function(source, cb)
 	local xPlayer = ESX.GetPlayerFromId(source)
 
@@ -52,3 +74,4 @@ ESX.RegisterServerCallback('poggu_hud:retrieveData', function(source, cb)
 	  cb({cash = money, bank = bank, black_money = black_money, society = society})
 	end
 end)
+]]--
