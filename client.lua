@@ -49,6 +49,11 @@ function showAlert(message, time, color)
 	})
 end
 
+RegisterNetEvent('poggu_hud:showAlert')
+AddEventHandler('poggu_hud:showAlert', function(message, time, color)
+	showAlert(message, time, color)
+end)
+
 
 Citizen.CreateThread(function()
 	while true do
@@ -110,9 +115,27 @@ Citizen.CreateThread(function()
 	end
 end)
 
+local isMenuPaused = false
+
+function menuPaused()
+	SendNUIMessage({
+		action = 'disableHud',
+		data = isMenuPaused
+	})
+end
+
 Citizen.CreateThread(function()
 	while true do
 		Citizen.Wait(1)
+		if IsPauseMenuActive() then
+			if not isMenuPaused then
+				isMenuPaused = true
+				menuPaused()
+			end
+		elseif isMenuPaused then
+			isMenuPaused = false
+			menuPaused()
+		end
 		if IsControlJustPressed(1, 56) then
 			SendNUIMessage({
 				action = 'showAdvanced'

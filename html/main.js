@@ -83,6 +83,9 @@ $(function () {
 			case 'showAlert':
 				showAlert(event.data.message, event.data.time, event.data.color)
 				break
+			case 'disableHud':
+				event.data.data ? $('body').fadeOut(300) : $('body').fadeIn(1000)
+				break
 		}
 	})
 })
